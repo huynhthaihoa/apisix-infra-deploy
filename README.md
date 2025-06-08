@@ -9,7 +9,7 @@ Install:
 - Ansible
 - AWS CLI
 - jq
-- Valid AWS credentials and SSH key (~/.ssh/my-key.pem and my-key.pub)
+- Valid AWS credentials and SSH key (`~/.ssh/my-key.pem` and `my-key.pub`)
 
 ## 🛠️ Steps to Run Locally
 1. Clone the repo and navigate to the folder
