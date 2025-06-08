@@ -53,3 +53,10 @@ Install:
 cd terraform
 terraform destroy -auto-approve
 ```
+
+## 🎯 Outcome
+- **Terraform** provisions the environment on AWS.
+
+- **Ansible** configures Apache APISIX and supporting tools on EC2.
+
+- **Apache APISIX** serves as a production-ready API Gateway that routes traffic securely to your microservices.
