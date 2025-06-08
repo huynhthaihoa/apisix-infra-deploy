@@ -1,7 +1,7 @@
 # Apache APISIX Deployment with Terraform & Ansible
 
 ## 🚀 Overview
-This project provisions an AWS EC2 instance using Terraform and configures Apache APISIX on it using Ansible. It also includes a GitHub Actions pipeline for full CI/CD automation.
+This project provisions an **AWS EC2** instance using **Terraform** and configures **Apache APISIX** on it using **Ansible**. It also includes a GitHub Actions pipeline for full CI/CD automation.
 
 ```mermaid
 flowchart TD
@@ -55,8 +55,8 @@ terraform destroy -auto-approve
 ```
 
 ## 🎯 Outcome
-- **Terraform** provisions the environment on AWS.
+- **Terraform** provisions the environment on AWS (VPC, EC2, security groups, etc.).
 
-- **Ansible** configures Apache APISIX and supporting tools on EC2.
+- **Ansible** configures Apache APISIX and supporting tools on provisioned EC2 instances.
 
 - **Apache APISIX** serves as a production-ready API Gateway that routes traffic securely to your microservices.
