@@ -1,0 +1,35 @@
+name: Deploy APISIX Gateway
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Provision and Configure Infrastructure
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init and Apply
+        run: |
+          cd terraform
+          terraform init
+          terraform apply -auto-approve
+
+      - name: Install jq and Ansible
+        run: |
+          sudo apt update
+          sudo apt install -y jq ansible
+
+      - name: Generate Ansible Inventory
+        run: bash ./scripts/update_inventory.sh
+
+      - name: Run Ansible Playbook
+        run: bash ./scripts/trigger_ansible.sh

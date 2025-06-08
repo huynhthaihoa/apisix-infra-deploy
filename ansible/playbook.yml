@@ -1,0 +1,31 @@
+- name: Install and configure Apache APISIX
+  hosts: apisix
+  become: yes
+  vars:
+    apisix_version: "3.6.0"
+  tasks:
+    - name: Install dependencies
+      apt:
+        name:
+          - curl
+          - wget
+          - unzip
+          - gnupg
+        update_cache: yes
+
+    - name: Add APISIX repository
+      shell: |
+        curl https://repos.apiseven.com/apache/apisix/gpg | gpg --dearmor -o /usr/share/keyrings/apisix.gpg
+        echo "deb [signed-by=/usr/share/keyrings/apisix.gpg] https://repos.apiseven.com/apache/apisix/ubuntu focal main" > /etc/apt/sources.list.d/apisix.list
+        apt update
+
+    - name: Install APISIX
+      apt:
+        name: apache-apisix
+        state: present
+
+    - name: Start APISIX
+      systemd:
+        name: apisix
+        enabled: yes
+        state: started
