@@ -39,14 +39,14 @@ Install:
 4. Run `scripts/trigger_ansible.sh`
 
 ## ✅ Validate
-- Visit: http://<EC2_PUBLIC_IP>:9080
+- Visit: `http://<EC2_PUBLIC_IP>:9080`
 - Create a route via curl:
   ```
   curl -X PUT http://<EC2_PUBLIC_IP>:9080/apisix/admin/routes/1 \
     -H "X-API-KEY: edd1c9f034335f136f87ad84b625c8f1" \
     -d '{"uri":"/demo","upstream":{"type":"roundrobin","nodes":{"httpbin.org:80":1}}}'
   ```
-- Access it at: http://<EC2_PUBLIC_IP>:9080/demo
+- Access it at: `http://<EC2_PUBLIC_IP>:9080/demo`
 
 ## 🧼 Cleanup
 ```bash
