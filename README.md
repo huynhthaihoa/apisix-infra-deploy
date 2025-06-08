@@ -3,12 +3,33 @@
 ## 🚀 Overview
 This project provisions an AWS EC2 instance using Terraform and configures Apache APISIX on it using Ansible. It also includes a GitHub Actions pipeline for full CI/CD automation.
 
+```mermaid
+flowchart TD
+    A[Developer Pushes to GitHub] --> B[GitHub Actions CI/CD]
+    B --> C[Terraform: Provision EC2 + Security Group]
+    C --> D[Terraform Outputs EC2 Public IPs]
+    D --> E[Shell Script: Generate Ansible Inventory]
+
+    E --> F[Ansible Playbook: Install Apache APISIX]
+    F --> G[EC2 Instance: Apache APISIX Running]
+
+    G --> H[Client Requests to APISIX]
+
+    subgraph Local Option
+        A2[Developer Runs Terraform Manually]
+        A2 --> C
+        D --> E2[Run Inventory Script Locally]
+        E2 --> F2[Run Ansible Locally]
+        F2 --> G
+    end
+```
+
 ## 📦 Prerequisites
 Install:
-- Terraform
-- Ansible
-- AWS CLI
-- jq
+- [Terraform](https://developer.hashicorp.com/terraform/downloads)
+- [Ansible](https://docs.ansible.com/)
+- [AWS CLI](https://docs.aws.amazon.com/cli/)
+- [`jq`](https://stedolan.github.io/jq/)
 - Valid AWS credentials and SSH key (`~/.ssh/my-key.pem` and `my-key.pub`)
 
 ## 🛠️ Steps to Run Locally
