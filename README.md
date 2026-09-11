@@ -448,14 +448,3 @@ sudo systemctl status apisix   # Check service status
 ## 📝 License
 
 This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
-
----
-
-## 💡 Support & Contributing
-
-For issues, questions, or suggestions:
-- Open an issue on [GitHub](https://github.com/huynhthaihoa/apisix-infra-deploy/issues)
-- Check [Apache APISIX Documentation](https://apisix.apache.org/docs/)
-- Review [Terraform AWS Provider Docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
-
-Contributions and improvements are welcome!
